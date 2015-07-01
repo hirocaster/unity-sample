@@ -16,13 +16,6 @@ public class BuildBatch : MonoBehaviour
 			"Assets/default-android.unity"
 		};
 
-		string dstDevice = "Device";
-
-		BuildOptions opt = BuildOptions.SymlinkLibraries | 
-			BuildOptions.Development | 
-			BuildOptions.ConnectWithProfiler | 
-			BuildOptions.AllowDebugging;
-
 		// set cheched
 		EditorUserBuildSettings.symlinkLibraries = true;
 		EditorUserBuildSettings.development = true;
@@ -33,10 +26,16 @@ public class BuildBatch : MonoBehaviour
 		//BUILD for device
 
 		// for iPhone
-		//string errorMsg_Device = BuildPipeline.BuildPlayer (scene, dstDevice, BuildTarget.iOS, opt);
+		
+		// BuildOptions opt = BuildOptions.SymlinkLibraries | 
+		// 	BuildOptions.Development | 
+		//	BuildOptions.ConnectWithProfiler | 
+		//	BuildOptions.AllowDebugging;
+		// string dstDevice = "Device";
+		// string errorMsg_Device = BuildPipeline.BuildPlayer (scene, dstDevice, BuildTarget.iOS, opt);
 
 		// for Android
-		string errorMsg_Device = BuildPipeline.BuildPlayer( scene, "android.apk", BuildTarget.Android, BuildOptions.None );
+		string errorMsg_Device = BuildPipeline.BuildPlayer (scene, "android.apk", BuildTarget.Android, BuildOptions.None);
 			
 				
 		if (string.IsNullOrEmpty (errorMsg_Device)) {
